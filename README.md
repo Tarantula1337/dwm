@@ -1,6 +1,9 @@
 # Dynamic Window Manager (DWM)
-  My current dwm setup doesn't add much to the base config. I changed the color of the bar to be the Saints Row purple and changed the font to MesloLGS mono.
+  My current dwm setup, with some QoL patches applied.
 ## Currently applied patches:
   - autostart
   - fakefullscreen
   - dwm-steam
+## Theming:
+  The bar uses the Saints Row purple with the hex #9300c5.
+  The font has been changed to use the MesloLGS mono Nerd font.
