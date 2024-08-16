@@ -1,6 +1,6 @@
-From 4cc3588c2601e6a2edb8d7117723d28d77f0fc61 Mon Sep 17 00:00:00 2001
+From f202a25a5c72ac69790053f8155d169e0f59e42f Mon Sep 17 00:00:00 2001
 From: Bakkeby <bakkeby@gmail.com>
-Date: Mon, 10 Jan 2022 13:42:45 +0100
+Date: Wed, 26 Jun 2024 23:06:37 +0200
 Subject: [PATCH] Steam patch
 
 Steam, and steam windows (games), trigger a ConfigureNotify request every time the window
@@ -14,7 +14,7 @@ ConfigureNotify requests relating to Steam windows.
  1 file changed, 15 insertions(+), 7 deletions(-)
 
 diff --git a/dwm.c b/dwm.c
-index a96f33c..318491b 100644
+index f1d86b2..874dc3c 100644
 --- a/dwm.c
 +++ b/dwm.c
 @@ -93,6 +93,7 @@ struct Client {
@@ -25,7 +25,7 @@ index a96f33c..318491b 100644
  	Client *next;
  	Client *snext;
  	Monitor *mon;
-@@ -292,6 +293,9 @@ applyrules(Client *c)
+@@ -291,6 +292,9 @@ applyrules(Client *c)
  	class    = ch.res_class ? ch.res_class : broken;
  	instance = ch.res_name  ? ch.res_name  : broken;
  
@@ -35,7 +35,7 @@ index a96f33c..318491b 100644
  	for (i = 0; i < LENGTH(rules); i++) {
  		r = &rules[i];
  		if ((!r->title || strstr(c->name, r->title))
-@@ -589,13 +593,15 @@ configurerequest(XEvent *e)
+@@ -591,13 +595,15 @@ configurerequest(XEvent *e)
  			c->bw = ev->border_width;
  		else if (c->isfloating || !selmon->lt[selmon->sellt]->arrange) {
  			m = c->mon;
@@ -58,7 +58,7 @@ index a96f33c..318491b 100644
  			}
  			if (ev->value_mask & CWWidth) {
  				c->oldw = c->w;
-@@ -1470,6 +1476,8 @@ setfocus(Client *c)
+@@ -1476,6 +1482,8 @@ setfocus(Client *c)
  			XA_WINDOW, 32, PropModeReplace,
  			(unsigned char *) &(c->win), 1);
  	}
@@ -68,5 +68,5 @@ index a96f33c..318491b 100644
  }
  
 -- 
-2.19.1
+2.45.2
 
